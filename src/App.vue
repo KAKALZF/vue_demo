@@ -5,6 +5,7 @@
     <h2>{{name}}</h2>
     <h2>{{age}}</h2>
     <h2>{{citise}}</h2>
+    <h2>{{password}}</h2>
     <input @click="submit"> 点击获取1</input>
     <input @click="submit2"> 点击获取2</input>
     <!-- <router-view/>-->
@@ -20,7 +21,8 @@
       return {
         name: 'kaka',
         age: '',
-        citise: []
+        citise: [],
+        password: '123',
       }
     },
     methods: {
@@ -48,7 +50,9 @@
         axios.get('/api/hello/kaka')
           .then(
             res => {
-              console.log(res.data.data[0].password)
+              let pwd = res.data.data[0].password
+              console.log(pwd);
+              this.password = pwd;
             }
           )
       },
