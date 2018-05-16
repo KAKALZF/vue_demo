@@ -8,6 +8,7 @@
     <h2>{{password}}</h2>
     <input @click="submit"> 点击获取1</input>
     <input @click="submit2"> 点击获取2</input>
+    <router-view></router-view>
     <!-- <router-view/>-->
   </div>
 </template>
@@ -29,7 +30,6 @@
       submit: function () {
         let result = null;
         alert('hello haha');
-//        axios.get('/api/hello/kaka')
         axios.get('/static/mock/city.json')
           .then(
             res => {
@@ -59,3 +59,13 @@
     }
   };
 </script>
+<style>
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+</style>
