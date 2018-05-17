@@ -2,6 +2,12 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{password}}</h2>
+    姓名:<input type="text" v-model="username">
+    {{username}}
+    密码:<input type="text" v-model="password">
+    {{password}}
+    <br>
+    <input type="button" value="注册" @click="register">
     <ol>
       <li v-for="city in citise">
         {{city.name}}
@@ -25,6 +31,7 @@
     data: function () {
       return {
         citise: [],
+        username: "",
         password: 'judian3321',
         msg: 'hello.vue'
       }
@@ -38,7 +45,7 @@
             res => {
               let result = res.data.data.hotCities;
               console.log(result[0]);
-              this.name = result[0].name;
+              this.username = result[0].name;
               this.age = result[0].spell;
               this.citise = result;
             }
@@ -59,6 +66,21 @@
             }
           )
       },
+      register: function () {
+        axios({
+          method: 'post',
+          url: '/api/register',
+          dataType: 'json',
+          params: {
+            username: this.username,
+            password: this.password
+          }
+        }).then(
+          res => {
+            console.log(res)
+          },
+        );
+      }
     }
   }
 </script>
