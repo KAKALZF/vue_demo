@@ -23,7 +23,7 @@
         name: 'kaka',
         age: '',
         citise: [],
-        password: '123',
+        password: 'judian3321',
       }
     },
     methods: {
