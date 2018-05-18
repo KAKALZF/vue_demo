@@ -8,11 +8,11 @@
     {{password}}
     <br>
     <input type="button" value="注册" @click="register">
-    <ol>
+    <ul>
       <li v-for="city in citise">
         {{city.name}}
       </li>
-    </ol>
+    </ul>
     <input @click="submit"> 点击获取1</input>
     <input @click="submit2"> 点击获取2</input>
     <Child></Child>
