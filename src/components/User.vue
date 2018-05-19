@@ -1,25 +1,41 @@
 <template>
-  <div class="hello">
+  <div class="hello" style="background:#98bf21;height:100px;width:100px;position:absolute;">
     <input @click="submit2"> 点击获取2</input>
     <ul>
       <li v-for="user in userList">{{user.username}}</li>
     </ul>
-    <Child></Child>
+    <button>开始动画</button>
+    <!--<customCom time=this.now></customCom>-->
+    //动态props,通过v-bind绑定数据
+    <customCom v-bind:time="now"></customCom>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
-
-  var Child = {
-    template: '<h1>自定义组件!</h1>'
-  }
+  import Vue from 'vue'
+  import jquery from '../../static/js/jquery.min'
+  /*
+    window.onload = function () {
+      alert('文档加载完毕');
+    }
+  */
+  Vue.component('customCom', {
+    props: ['time'],
+    template: '<h1>现在时间:{{time}}</h1>'
+  })
+  ;
+  $(document).ready(function () {
+    $("button").click(function () {
+      $("div").animate({left: '250px'});
+    });
+  });
   export default {
     name: 'user',
-    components: {Child},
     data: function () {
       return {
-        userList: []
+        userList: [],
+        now: ''
       }
     },
     methods: {
@@ -29,6 +45,10 @@
           .then(
             res => {
               this.userList = res.data.data;
+              let time = new Date();
+              console.log(time);
+              this.now = time;
+              console.log(this.now)
             }
           )
       }
