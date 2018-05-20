@@ -4,9 +4,10 @@
     <ul>
       <li v-for="user in userList">{{user.username}}</li>
     </ul>
+    <h1>{{count}}</h1>
     <button>开始动画</button>
     <!--<customCom time=this.now></customCom>-->
-    //动态props,通过v-bind绑定数据
+    <!-- 动态props,通过v-bind绑定数据-->
     <customCom v-bind:time="now"></customCom>
   </div>
 </template>
@@ -35,7 +36,8 @@
     data: function () {
       return {
         userList: [],
-        now: ''
+        now: '',
+        count: 10
       }
     },
     methods: {
@@ -46,9 +48,10 @@
             res => {
               this.userList = res.data.data;
               let time = new Date();
-              console.log(time);
               this.now = time;
-              console.log(this.now)
+              let interval = setInterval(function () {
+                this.count--;
+              }, 1000)
             }
           )
       }
