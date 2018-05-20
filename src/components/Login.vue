@@ -26,7 +26,7 @@
     template: '<h1>自定义组件!</h1>'
   }
   export default {
-    name: 'HomeLogin',
+    name: 'Login',
     components: {Child},
     data: function () {
       return {
