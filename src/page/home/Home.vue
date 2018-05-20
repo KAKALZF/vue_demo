@@ -1,21 +1,19 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <home-header></home-header>>
+    <home-header></home-header>
+    <header-swiper></header-swiper>
   </div>
 </template>
 
 <script>
   import HomeHeader from './components/Header.vue'
+  import HeaderSwiper from './components/Swiper.vue'
+
   export default {
-    name: 'home',
-    data () {
-      return {
-        msg: 'hello.vue'
-      }
-    },
-    components :{
-      HomeHeader
+    name: 'Home',
+    components: {
+      HomeHeader,
+      HeaderSwiper
     }
   }
 </script>

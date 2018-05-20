@@ -8,7 +8,7 @@
       输入城市/景点/主题
     </div>
     <div class="header-right">
-      城市<span class="iconfont">&#xe62d;</span>
+      省份<span class="iconfont">&#xe62d;</span>
     </div>
   </div>
 </template>
@@ -39,9 +39,9 @@
       flex:1
       background:#fff
       color: #ccc
-      margin-top: .2rem;
-      margin-left: .2rem;
-      margin-right: .2rem;
+      margin-top: .2rem
+      margin-left: .2rem
+      margin-right: .2rem
       margin-bottom: .2rem
     .header-right
        float: right
