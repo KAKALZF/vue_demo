@@ -10,6 +10,7 @@
     <!-- 动态props,通过v-bind绑定数据-->
     <customCom v-bind:time="now"></customCom>
   </div>
+
 </template>
 
 <script>

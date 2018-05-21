@@ -16,6 +16,27 @@
     <input @click="submit"> 点击获取1</input>
     <input @click="submit2"> 点击获取2</input>
     <Child></Child>
+
+    <div class="container">
+      <h2>表格</h2>
+      <p> .table 为任意表格添加基本样式 (只有横向分隔线):</p>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>用户名</th>
+          <th>注册时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="user in userList">
+          <td> {{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.registerTime}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -31,6 +52,7 @@
     data: function () {
       return {
         citise: [],
+        userList: [],
         username: "",
         password: 'judian3321',
         msg: 'hello.vue'
@@ -56,13 +78,13 @@
       },
       submit2: function () {
         let result = null;
-        alert('hello kaka');
         axios.get('/api/hello/kaka')
           .then(
             res => {
               let pwd = res.data.data[0].password
               console.log(pwd);
               this.password = pwd;
+              this.userList = res.data.data;
             }
           )
       },
