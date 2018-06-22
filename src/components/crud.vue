@@ -23,11 +23,39 @@
         </tbody>
       </table>
     </div>
+    <div class="container" style="padding: 100px 50px 10px;">
+      <button type="button" class="btn btn-default" title="Popover title"
+              data-container="body" data-toggle="popover" data-placement="left"
+              data-content="左侧的 Popover 中的一些内容">
+        左侧的 Popover
+      </button>
+      <button type="button" class="btn btn-primary" title="Popover title"
+              data-container="body" data-toggle="popover" data-placement="top"
+              data-content="顶部的 Popover 中的一些内容">
+        顶部的 Popover
+      </button>
+      <button type="button" class="btn btn-success" title="Popover title"
+              data-container="body" data-toggle="popover" data-placement="bottom"
+              data-content="底部的 Popover 中的一些内容">
+        底部的 Popover
+      </button>
+      <button type="button" class="btn btn-warning" title="Popover title"
+              data-container="body" data-toggle="popover" data-placement="right"
+              data-content="右侧的 Popover 中的一些内容">
+        右侧的 Popover
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+  /*import jquery from '@./static.js';*/
+
+  $(function () {
+    window.console.log("已加载")
+    $("[data-toggle='popover']").popover();
+  });
 
   var Child = {
     template: '<h1>自定义组件!</h1>'
