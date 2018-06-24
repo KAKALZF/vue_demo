@@ -78,7 +78,7 @@
       },
       submit2: function () {
         let result = null;
-        axios.get('/api/hello/kaka')
+        axios.get('/api/user/findAll')
           .then(
             res => {
               let pwd = res.data.data[0].password
