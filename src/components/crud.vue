@@ -22,38 +22,41 @@
         </tr>
         </tbody>
       </table>
-    </div>
-    <div class="container" style="padding: 100px 50px 10px;">
-      <button type="button" class="btn btn-default" title="Popover title"
-              data-container="body" data-toggle="popover" data-placement="left"
-              data-content="左侧的 Popover 中的一些内容">
-        左侧的 Popover
-      </button>
-      <button type="button" class="btn btn-primary" title="Popover title"
-              data-container="body" data-toggle="popover" data-placement="top"
-              data-content="顶部的 Popover 中的一些内容">
-        顶部的 Popover
-      </button>
-      <button type="button" class="btn btn-success" title="Popover title"
-              data-container="body" data-toggle="popover" data-placement="bottom"
-              data-content="底部的 Popover 中的一些内容">
-        底部的 Popover
-      </button>
-      <button type="button" class="btn btn-warning" title="Popover title"
-              data-container="body" data-toggle="popover" data-placement="right"
-              data-content="右侧的 Popover 中的一些内容">
-        右侧的 Popover
-      </button>
+      <div class="container" style="padding: 100px 50px 10px;" >
+        <button type="button" class="btn btn-default" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="left"
+                data-content="左侧的 Popover 中的一些内容">
+          左侧的 Popover
+        </button>
+        <button type="button" class="btn btn-primary" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="top"
+                data-content="顶部的 Popover 中的一些内容">
+          顶部的 Popover
+        </button>
+        <button type="button" class="btn btn-success" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="bottom"
+                data-content="底部的 Popover 中的一些内容">
+          底部的 Popover
+        </button>
+        <button type="button" class="btn btn-warning" title="Popover title"
+                data-container="body" data-toggle="popover" data-placement="right"
+                data-content="右侧的 Popover 中的一些内容">
+          右侧的 Popover
+        </button>
+      </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
-  /*import jquery from '@./static.js';*/
+  import $ from 'jquery';
+  import bootstrap from  'bootstrap'
+//  import 'bootstrap/dist/js/popover.js';
+  import 'bootstrap/dist/css/bootstrap.min.css'
 
   $(function () {
-    window.console.log("已加载")
     $("[data-toggle='popover']").popover();
   });
 
@@ -65,7 +68,7 @@
     components: {Child},
     data: function () {
       return {
-        userList: [{"name": "林", "age": 18}, {"name": "易", "age": 17}],
+        userList: [{"name": "林", "age": 18}, {"name": "卡卡", "age": 17}],
       }
     },
     methods: {
@@ -89,6 +92,13 @@
       deleteUser() {
         this.userList.pop({"name": "kaka", "age": 22});
       }
+    },
+    mounted() {
+
+//        window.console.log("已加载")
+//        console.log($("#test"));
+//        $("#test").popover();
+   /*   $('[data-toggle="popover"]').popover()*/
     }
   }
 </script>
