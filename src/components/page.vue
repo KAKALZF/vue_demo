@@ -20,14 +20,9 @@
       </tr>
       </tbody>
     </table>
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item" v-for="n in totalPage">
-        <a class="page-link" @click="getUserList2($event)">{{n}}</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
+    <page-component @change-page="changePage" :totalPage="totalPage" :initPage="page"></page-component>
   </div>
+
 </template>
 
 <script>
@@ -35,13 +30,11 @@
   import $ from 'jquery';
   import bootstrap from 'bootstrap'
   import 'bootstrap/dist/css/bootstrap.min.css'
-
-  $(function () {
-
-  });
+  import pageComponent from "./pageComponent.vue"
 
   export default {
     name: 'page',
+    components: {pageComponent},
     data: function () {
       return {
         userList: [],
@@ -73,13 +66,12 @@
             this.totalPage = res.data.data.totalPages;
           })
       },
-      getUserList2(event) {
-        console.log(event)
+      getUserList2(page) {
         axios({
           method: 'get',
           url: '/api/user/page',
           params: {
-            page: this.page,
+            page: page,
             size: this.size
           }
         }).then(
@@ -87,9 +79,16 @@
 //            console.log(res);
             this.userList = res.data.data.content;
             this.totalPage = res.data.data.totalPages;
+            this.page = res.data.data.number;
           })
+      },
+      changePage(value) {
+        window.console.log("触发..");
+        window.console.log(value);
+        this.getUserList2(value);
       }
     },
+
     mounted() {
       this.getUserList();
     }
