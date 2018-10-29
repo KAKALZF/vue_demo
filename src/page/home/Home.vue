@@ -2,18 +2,21 @@
   <div class="hello">
     <home-header></home-header>
     <header-swiper></header-swiper>
+    <navigation></navigation>
   </div>
 </template>
 
 <script>
   import HomeHeader from './components/Header.vue'
   import HeaderSwiper from './components/Swiper.vue'
+  // import navigation from '/src/components/navigation.vue'
 
   export default {
     name: 'Home',
     components: {
       HomeHeader,
-      HeaderSwiper
+      HeaderSwiper,
+      // navigation
     }
   }
 </script>

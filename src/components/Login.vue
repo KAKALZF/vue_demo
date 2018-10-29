@@ -91,7 +91,7 @@
       register: function () {
         axios({
           method: 'post',
-          url: '/api/register',
+          url: API_PATH + '/register',
           dataType: 'json',
           params: {
             username: this.username,
