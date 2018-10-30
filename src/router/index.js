@@ -6,6 +6,7 @@ import crud from '@/components/crud'
 import page from '@/components/page'
 import basic from '@/components/basic'
 import Home from '@/page/home/Home'
+import navigation from '@/components/navigation'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/basic',
       name: 'basic',
       component: basic
+    },
+    {
+      path: '/navigation',
+      name: 'navigation',
+      component: navigation
     }
   ]
 })

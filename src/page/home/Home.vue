@@ -9,14 +9,12 @@
 <script>
   import HomeHeader from './components/Header.vue'
   import HeaderSwiper from './components/Swiper.vue'
-  // import navigation from '/src/components/navigation.vue'
 
   export default {
     name: 'Home',
     components: {
       HomeHeader,
       HeaderSwiper,
-      // navigation
     }
   }
 </script>
