@@ -3,7 +3,8 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require("webpack");
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -12,9 +13,7 @@ function resolve (dir) {
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
+  entry: utils.getEntries('./src/web/**/*.js'),
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -81,3 +80,17 @@ module.exports = {
     child_process: 'empty'
   }
 }
+
+
+var pages = utils.getEntries('./src/'+'web'+'/**/*.html');
+for (var pathname in pages) {
+  // 配置生成的html文件，定义路径等
+  var conf = { filename: pathname + '.html',
+    template: pages[pathname], // 模板路径
+    chunks: [pathname, 'vendors', 'manifest'], // 每个html引用的js模块
+    inject: true // js插入位置
+  };
+  // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
+  module.exports.plugins.push(new HtmlWebpackPlugin(conf));
+}
+module.exports = config;
