@@ -78,7 +78,8 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins: []
 }
 
 
@@ -93,4 +94,4 @@ for (var pathname in pages) {
   // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
   module.exports.plugins.push(new HtmlWebpackPlugin(conf));
 }
-module.exports = config;
+//module.exports = config;
